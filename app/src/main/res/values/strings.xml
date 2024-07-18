@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PlayListMaker JetpackCompose</string>
+    <string name="user_polic_web">https://yandex.ru/legal/practicum_offer/</string>
+    <string name="email">drroon6799@gmail.com</string>
+    <string name="share_ht">https://practicum.yandex.ru/android-developer/?from=catalog</string>
+    <string name="email_text">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="email_subject">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="tracks_share_intent">Привет, посмотри на мой плэйлист с названием «%1$s».\nОписание: «%2$s».\nВ нем «%3$s трека».\nСписок треков:\n</string>
 </resources>

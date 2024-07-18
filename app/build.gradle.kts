@@ -50,7 +50,12 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.room)
+    implementation(libs.roomKapt)
+    implementation(libs.retrofit)
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+    implementation(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
