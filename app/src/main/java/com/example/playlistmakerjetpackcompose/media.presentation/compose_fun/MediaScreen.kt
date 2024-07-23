@@ -16,10 +16,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.playlistmakerjetpackcompose.ui.theme.YsMediumFamily
 
 @Composable
-fun MediaScreen() {
+fun MediaScreen(navHostController: NavHostController) {
 
     Column(
         modifier = Modifier
@@ -57,7 +58,7 @@ fun MediaScreen() {
         }
         when (tabIndex.value) {
             0 -> LikedTracksScreen()
-            1 -> PlaylistScreen()
+            1 -> PlaylistScreen(navHostController)
         }
     }
 }

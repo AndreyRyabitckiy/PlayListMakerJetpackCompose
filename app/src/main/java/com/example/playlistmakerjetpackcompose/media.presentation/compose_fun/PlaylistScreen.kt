@@ -21,14 +21,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.playlistmakerjetpackcompose.R
 import com.example.playlistmakerjetpackcompose.media.presentation.view_model.PlayListViewModel
+import com.example.playlistmakerjetpackcompose.navigation.Screen
 import com.example.playlistmakerjetpackcompose.settings.presentation.view_model.SettingsViewModel
 import com.example.playlistmakerjetpackcompose.ui.theme.YsMediumFamily
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PlaylistScreen(
+    navHostController: NavHostController,
     viewModelTheme: SettingsViewModel = koinViewModel(),
     viewModel: PlayListViewModel = koinViewModel()
 ) {
@@ -46,7 +50,7 @@ fun PlaylistScreen(
     ) {
         Button(
             onClick = {
-
+                navHostController.navigate(Screen.CreateScreen.route)
             },
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onBackground)
         ) {
@@ -59,6 +63,7 @@ fun PlaylistScreen(
                 item {
                     PlayListItem(playList = it)
                 }
+
                 }
             }
         } else {

@@ -89,8 +89,6 @@ fun NavigatorPlayListMaker (viewModel: SettingsViewModel = koinViewModel()){
             Surface(modifier = Modifier.padding(paddingValues)) {
                 AppNavGraph(
                     navHostController = navHostController,
-                    searchScreenContent = { SearchScreen() },
-                    mediaScreenContent = { MediaScreen() },
                     settingsScreenContent = { SettingsScreen(){
                         viewModel.updateTheme(it)
                     } }
