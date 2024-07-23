@@ -1,18 +1,21 @@
 package com.example.playlistmakerjetpackcompose.settings.data
 
 import android.content.Context
-import com.example.playlistmakerjetpackcompose.settings.domain.SettingsRepository
 import com.example.playlistmakerjetpackcompose.R
+import com.example.playlistmakerjetpackcompose.settings.domain.SettingsRepository
 
 class SettingsRepositoryImpl(private val context: Context) : SettingsRepository {
 
     private val sharedPrefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-    override fun getThemeSettings() =
-        sharedPrefs.getInt(THEME_KEY, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+    override suspend fun getThemeSettings(): Boolean {
+        var answer = false
+        return sharedPrefs.getBoolean(THEME_KEY, answer)
+    }
 
-    override fun updateThemeSetting(theme: Int) =
-        sharedPrefs.edit().putInt(THEME_KEY, theme).apply()
+    override fun updateThemeSetting(theme: Boolean) {
+        sharedPrefs.edit().putBoolean(THEME_KEY, theme).apply()
+    }
 
 
     override fun getAppShareLink() = context.getString(R.string.share_ht)

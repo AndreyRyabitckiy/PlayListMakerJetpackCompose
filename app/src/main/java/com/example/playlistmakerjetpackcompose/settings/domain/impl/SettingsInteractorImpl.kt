@@ -5,8 +5,8 @@ import com.example.playlistmakerjetpackcompose.settings.domain.SettingsRepositor
 
 class SettingsInteractorImpl(private val repository: SettingsRepository) : SettingsInteractor {
 
-    override fun getThemeSettings(): Int = repository.getThemeSettings()
+    override suspend fun getThemeSettings(): Boolean = repository.getThemeSettings()
 
-    override fun updateThemeSetting(theme: Int) = repository.updateThemeSetting(theme)
+    override fun updateThemeSetting(theme: Boolean) = repository.updateThemeSetting(theme)
 
 }

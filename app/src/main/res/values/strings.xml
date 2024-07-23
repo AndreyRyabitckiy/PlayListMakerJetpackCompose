@@ -6,4 +6,5 @@
     <string name="email_text">Спасибо разработчикам и разработчицам за крутое приложение!</string>
     <string name="email_subject">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
     <string name="tracks_share_intent">Привет, посмотри на мой плэйлист с названием «%1$s».\nОписание: «%2$s».\nВ нем «%3$s трека».\nСписок треков:\n</string>
+    <string name="app_name">PlayList Jetpack Compose\n</string>
 </resources>

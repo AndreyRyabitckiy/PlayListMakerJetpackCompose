@@ -1,9 +1,9 @@
 package com.example.playlistmakerjetpackcompose.settings.domain
 
 interface SettingsRepository {
-    fun getThemeSettings(): Int
+    suspend fun getThemeSettings(): Boolean
 
-    fun updateThemeSetting(theme: Int)
+    fun updateThemeSetting(theme: Boolean)
 
     fun getAppShareLink(): String
 

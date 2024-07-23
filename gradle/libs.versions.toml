@@ -9,9 +9,14 @@ lifecycleRuntimeKtx = "2.8.3"
 activityCompose = "1.9.0"
 gsonVersion = "2.10"
 retrofitVersion = "2.9.0"
-glideVersion = "4.14.2"
+glideVersion = "1.0.0-beta01"
 composeBom = "2023.08.00"
 roomVersion = "2.5.1"
+navigationComposeVersion = "2.5.2"
+livedataVersion = "1.2.1"
+koincompseversion = "3.5.3"
+material3 = "1.2.0-rc01"
+material = "1.4.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,13 +32,20 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glideVersion" }
-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glideVersion" }
+glide = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glideVersion" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
+retrofitConvert = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion"}
 room = {group = "androidx.room", name = "room-runtime", version.ref = "roomVersion"}
+roomktx = {group = "androidx.room", name = "room-ktx", version.ref = "roomVersion"}
 roomKapt = {group = "androidx.room", name = "room-compiler", version.ref = "roomVersion"}
+composenavigation = {group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationComposeVersion"}
+livedata = {group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "livedataVersion"}
+koin = {group = "io.insert-koin", name = "koin-android", version.ref ="koincompseversion"}
+koin1 = {group = "io.insert-koin", name = "koin-androidx-navigation", version.ref ="koincompseversion"}
+koin2 = {group = "io.insert-koin", name = "koin-androidx-compose", version.ref ="koincompseversion"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

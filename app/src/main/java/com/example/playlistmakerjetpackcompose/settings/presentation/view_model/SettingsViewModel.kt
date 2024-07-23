@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.playlistmakerjetpackcompose.settings.domain.SettingsInteractor
 import com.example.playlistmakerjetpackcompose.settings.domain.SharingInteractor
+import kotlinx.coroutines.runBlocking
 
 class SettingsViewModel(
     private val sharingInteractor: SharingInteractor,
@@ -12,8 +13,8 @@ class SettingsViewModel(
 ) : ViewModel() {
 
 
-    private val _theme = MutableLiveData<Int>()
-    val theme: LiveData<Int>
+    private val _theme = MutableLiveData<Boolean>()
+    val theme: LiveData<Boolean>
         get() = _theme
 
 
@@ -25,13 +26,15 @@ class SettingsViewModel(
         getTheme()
     }
 
-    fun updateTheme(theme: Int) {
+    fun updateTheme(theme: Boolean) {
         settingsInteractor.updateThemeSetting(theme)
         getTheme()
     }
 
     private fun getTheme() {
-        _theme.postValue(settingsInteractor.getThemeSettings())
+        runBlocking {
+            _theme.postValue(settingsInteractor.getThemeSettings())
+        }
     }
 
     fun shareApp() {

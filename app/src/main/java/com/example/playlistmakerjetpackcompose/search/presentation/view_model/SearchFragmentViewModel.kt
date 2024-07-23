@@ -74,11 +74,9 @@ class SearchFragmentViewModel(
 
     private var latestSearchText: String? = null
     fun searchDebounce() {
-
         if (latestSearchText == searchText) {
             return
         }
-
         latestSearchText = searchText
         searchJob?.cancel()
         searchJob = viewModelScope.launch {

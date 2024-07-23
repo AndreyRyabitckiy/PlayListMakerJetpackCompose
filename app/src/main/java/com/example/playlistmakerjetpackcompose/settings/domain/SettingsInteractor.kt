@@ -1,6 +1,6 @@
 package com.example.playlistmakerjetpackcompose.settings.domain
 
 interface SettingsInteractor {
-    fun getThemeSettings(): Int
-    fun updateThemeSetting(theme: Int)
+    suspend fun getThemeSettings(): Boolean
+    fun updateThemeSetting(theme: Boolean)
 }

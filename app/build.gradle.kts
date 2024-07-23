@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,11 +51,18 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.material)
+    implementation(libs.koin)
+    implementation(libs.koin1)
+    implementation(libs.koin2)
+    implementation(libs.livedata)
+    implementation(libs.composenavigation)
     implementation(libs.room)
-    implementation(libs.roomKapt)
+    implementation(libs.roomktx)
+    ksp(libs.roomKapt)
     implementation(libs.retrofit)
+    implementation(libs.retrofitConvert)
     implementation(libs.glide)
-    annotationProcessor(libs.compiler)
     implementation(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
