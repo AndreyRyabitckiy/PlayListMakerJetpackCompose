@@ -1,3 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PlayListMaker JetpackCompose</string>
+    <string name="user_polic_web">https://yandex.ru/legal/practicum_offer/</string>
+    <string name="email">drroon6799@gmail.com</string>
+    <string name="share_ht">https://practicum.yandex.ru/android-developer/?from=catalog</string>
+    <string name="email_text">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="email_subject">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="tracks_share_intent">Привет, посмотри на мой плэйлист с названием «%1$s».\nОписание: «%2$s».\nВ нем «%3$s трека».\nСписок треков:\n</string>
+    <string name="app_name">PlayList Jetpack Compose\n</string>
+    <string name="settings_screen">Настройки</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="email_support">Написать в поддержку</string>
+    <string name="user_policy">Пользовательское соглашение</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="you_search">Вы искали</string>
+    <string name="update">Обновить</string>
+    <string name="error_internet">Проблемы со связью\n\nЗагрузка не удалась. Проверьте\nподключение к интернету</string>
+    <string name="nothing_search">Ничего не нашлось</string>
+    <string name="search">Поиск</string>
+    <string name="cancel">Отмена</string>
+    <string name="completed">Завершить</string>
+    <string name="no_save">Все несохраненные данные будут потеряны</string>
+    <string name="canel_save">Завершить создание плейлиста?</string>
+    <string name="create">Создать</string>
+    <string name="about">Описание</string>
+    <string name="name_playlist">Название*</string>
+    <string name="time_long">Длительность</string>
+    <string name="collection_name">Альбом</string>
+    <string name="year">Год</string>
+    <string name="gendre_name">Жанр</string>
+    <string name="country">Страна</string>
+    <string name="add_to_playlist">Добавить в плейлист</string>
+    <string name="new_playlist">Новый плейлист</string>
+    <string name="media">Медиатека</string>
+    <string name="settings">Настройки</string>
+    <string name="your_media_is_empty">Ваша медиатека пуста</string>
+    <string name="liked_track">Избранные треки</string>
+    <string name="playlist">Плейлисты</string>
+    <string name="your_dont_create_playlist">Вы не создали \nни одного плейлиста</string>
+    <string name="delete">DELETE</string>
+    <string name="nulll_media">Ваша медиатека пуста</string>
+    <string name="share">Поделиться</string>
+    <string name="edit_information">Редактировать информацию</string>
+    <string name="delete_playlist">Удалить плейлист</string>
 </resources>
