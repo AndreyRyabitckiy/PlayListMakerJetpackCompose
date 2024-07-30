@@ -4,24 +4,24 @@ import com.example.playlistmakerjetpackcompose.R
 
 sealed class NavigationItem(
     val screen: Screen,
-    val titleResId: String,
+    val titleResId: Int,
     val icon: Int
 ) {
-    object Search : NavigationItem(
+    data object Search : NavigationItem(
         screen = Screen.SearchScreen,
-        titleResId = "Поиск",
+        titleResId = R.string.search,
         icon = R.drawable.ic_search_bottom
     )
 
-    object Media : NavigationItem(
+    data object Media : NavigationItem(
         screen = Screen.MediaScreen,
-        titleResId = "Медиатека",
+        titleResId = R.string.media,
         icon = R.drawable.ic_media
     )
 
-    object Settings : NavigationItem(
+    data object Settings : NavigationItem(
         screen = Screen.SettingsScreen,
-        titleResId = "Настройки",
+        titleResId = R.string.settings,
         icon = R.drawable.ic_settings
     )
 }

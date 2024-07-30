@@ -1,4 +1,4 @@
-package com.example.playlistmaker.di
+package com.example.playlistmakerjetpackcompose.di
 
 import android.content.Context
 import androidx.room.Room

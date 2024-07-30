@@ -11,7 +11,7 @@ import com.example.playlistmakerjetpackcompose.playlist_create.domain.models.Pla
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-class CreatePlayListFragmentViewModel(
+class CreatePlayListScreenViewModel(
     private val playListInteractor: PlayListInteractor,
     private val saveImageInteractor: SaveImageToMemoryInteractor
 ) : ViewModel() {

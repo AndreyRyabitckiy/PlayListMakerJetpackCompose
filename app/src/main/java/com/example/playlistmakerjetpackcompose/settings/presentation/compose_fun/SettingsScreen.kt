@@ -2,7 +2,6 @@ package com.example.playlistmakerjetpackcompose.settings.presentation.compose_fu
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,19 +22,19 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.playlistmakerjetpackcompose.R
-import com.example.playlistmakerjetpackcompose.settings.presentation.view_model.SettingsViewModel
-import com.example.playlistmakerjetpackcompose.ui.theme.PlayListMakerJetpackComposeTheme
+import com.example.playlistmakerjetpackcompose.settings.presentation.view_model.SettingsScreenViewModel
 import com.example.playlistmakerjetpackcompose.ui.theme.YsMediumFamily
 import com.example.playlistmakerjetpackcompose.ui.theme.YsRegularFamily
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SettingsScreen(
-    viewModel: SettingsViewModel = koinViewModel(),
-    switchTheme: (answer:Boolean) -> Unit,
+    viewModel: SettingsScreenViewModel = koinViewModel(),
+    switchTheme: (answer: Boolean) -> Unit,
 ) {
     val theme = viewModel.theme.observeAsState(true)
     Column(
@@ -47,11 +46,10 @@ fun SettingsScreen(
             color = MaterialTheme.colorScheme.onBackground,
             fontFamily = YsMediumFamily,
             fontSize = 22.sp,
-            text = "Настройки",
+            text = stringResource(R.string.settings_screen),
             modifier = Modifier
                 .padding(16.dp)
         )
-
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -59,7 +57,7 @@ fun SettingsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    vertical = 22.dp,
+                    vertical = 21.dp,
                     horizontal = 16.dp
                 ),
             verticalAlignment = Alignment.CenterVertically
@@ -67,7 +65,7 @@ fun SettingsScreen(
             Text(
                 color = MaterialTheme.colorScheme.onBackground,
                 fontFamily = YsRegularFamily,
-                text = "Темная тема",
+                text = stringResource(R.string.dark_theme),
                 fontSize = 16.sp,
                 modifier = Modifier.weight(1f)
             )
@@ -83,25 +81,25 @@ fun SettingsScreen(
                 onCheckedChange = {
                     viewModel.updateTheme(!theme.value)
                     switchTheme(it)
-                                  },
+                },
                 modifier = Modifier.scale(0.7f)
             )
         }
 
         RowButtonSettings(
-            textButton = "Поделиться приложением",
+            textButton = stringResource(R.string.share_app),
             idImageButton = R.drawable.ic_share,
             1,
             viewModel
         )
         RowButtonSettings(
-            textButton = "Написать в поддержку",
+            textButton = stringResource(R.string.email_support),
             idImageButton = R.drawable.ic_support,
             2,
             viewModel
         )
         RowButtonSettings(
-            textButton = "Пользовательское соглашение",
+            textButton = stringResource(R.string.user_policy),
             idImageButton = R.drawable.ic_back,
             3,
             viewModel
@@ -114,7 +112,7 @@ private fun RowButtonSettings(
     textButton: String,
     idImageButton: Int,
     use: Int,
-    viewModel: SettingsViewModel
+    viewModel: SettingsScreenViewModel
 ) {
     Row(
         modifier = Modifier
@@ -141,8 +139,7 @@ private fun RowButtonSettings(
         )
 
         Icon(
-
-            tint = colorResource(id = R.color.grey_playlist),
+            tint = MaterialTheme.colorScheme.primary,
             painter = painterResource(
                 id = idImageButton
             ), contentDescription = null

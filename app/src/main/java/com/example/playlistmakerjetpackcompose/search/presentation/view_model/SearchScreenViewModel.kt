@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+
 import com.example.playlistmakerjetpackcompose.search.domain.api.TracksInteractor
 import com.example.playlistmakerjetpackcompose.search.domain.models.ResponseStatus
 import com.example.playlistmakerjetpackcompose.search.domain.models.Track
@@ -15,9 +16,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-class SearchFragmentViewModel(
+class SearchScreenViewModel(
     private val sharedPrefsInteractor: SharedPrefsInteractor,
-    private val tracksInteractor: TracksInteractor
+    private val tracksInteractor: TracksInteractor,
 ) : ViewModel() {
 
     private var searchJob: Job? = null
@@ -64,6 +65,11 @@ class SearchFragmentViewModel(
     private val _tracks = MutableLiveData<List<Track>>()
     val tracks: LiveData<List<Track>>
         get() = _tracks
+
+    fun clearTrackList() {
+        _tracks.postValue(emptyList())
+    }
+
     private val _searchStatus = MutableLiveData<ResponseStatus>()
     val searchStatus: LiveData<ResponseStatus>
         get() = _searchStatus
@@ -100,6 +106,9 @@ class SearchFragmentViewModel(
                         }
                     }
             }
+        } else {
+            _showHistory.postValue(true)
+            _searchStatus.postValue(ResponseStatus.SUCCESS)
         }
     }
 

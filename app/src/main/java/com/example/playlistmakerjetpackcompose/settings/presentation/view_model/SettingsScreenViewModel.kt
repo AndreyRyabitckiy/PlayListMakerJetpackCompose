@@ -7,7 +7,7 @@ import com.example.playlistmakerjetpackcompose.settings.domain.SettingsInteracto
 import com.example.playlistmakerjetpackcompose.settings.domain.SharingInteractor
 import kotlinx.coroutines.runBlocking
 
-class SettingsViewModel(
+class SettingsScreenViewModel(
     private val sharingInteractor: SharingInteractor,
     private val settingsInteractor: SettingsInteractor,
 ) : ViewModel() {

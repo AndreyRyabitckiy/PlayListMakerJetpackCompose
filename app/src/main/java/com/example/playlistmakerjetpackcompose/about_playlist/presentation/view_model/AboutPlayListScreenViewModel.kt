@@ -10,7 +10,7 @@ import com.example.playlistmakerjetpackcompose.search.domain.models.Track
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-class AboutPlayListFragmentViewModel(
+class AboutPlayListScreenViewModel(
     private val playListInteractor: PlayListInteractor,
 ) : ViewModel() {
     private fun convert(countTrack: Int): String {
@@ -67,9 +67,9 @@ class AboutPlayListFragmentViewModel(
         }
     }
 
-    fun deletePlaylist(id: Long) {
+    fun deletePlaylist() {
         runBlocking {
-            playListInteractor.deletePlayList(id)
+            _playlist.value?.let { playListInteractor.deletePlayList(it.id) }
         }
     }
 }

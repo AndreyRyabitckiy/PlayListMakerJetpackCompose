@@ -2,7 +2,6 @@ package com.example.playlistmakerjetpackcompose.media.presentation.compose_fun
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,19 +15,22 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.playlistmakerjetpackcompose.R
-import com.example.playlistmakerjetpackcompose.media.presentation.view_model.LikeMusicViewModel
+import com.example.playlistmakerjetpackcompose.media.presentation.view_model.LikedTracksScreenViewModel
+import com.example.playlistmakerjetpackcompose.search.domain.models.Track
 import com.example.playlistmakerjetpackcompose.search.presentation.compose_fun.ItemTrack
-import com.example.playlistmakerjetpackcompose.settings.presentation.view_model.SettingsViewModel
+import com.example.playlistmakerjetpackcompose.settings.presentation.view_model.SettingsScreenViewModel
 import com.example.playlistmakerjetpackcompose.ui.theme.YsMediumFamily
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun LikedTracksScreen(
-    viewModel: LikeMusicViewModel = koinViewModel(),
-    viewModelTheme: SettingsViewModel = koinViewModel()
+    viewModel: LikedTracksScreenViewModel = koinViewModel(),
+    viewModelTheme: SettingsScreenViewModel = koinViewModel(),
+    clickItem: (Track) -> Unit
                       ) {
     val trackList = viewModel.tracksLiked.observeAsState(listOf())
     viewModel.update()
@@ -45,7 +47,9 @@ fun LikedTracksScreen(
             LazyColumn {
                 trackList.value.forEach { track ->
                     item {
-                        ItemTrack(track = track)
+                        ItemTrack(track = track) {
+                            clickItem(it)
+                        }
                     }
                 }
             }
@@ -66,7 +70,7 @@ fun LikedTracksScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Ваша медиатека пуста",
+                text = stringResource(R.string.your_media_is_empty),
                 color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 19.sp,
                 fontFamily = YsMediumFamily

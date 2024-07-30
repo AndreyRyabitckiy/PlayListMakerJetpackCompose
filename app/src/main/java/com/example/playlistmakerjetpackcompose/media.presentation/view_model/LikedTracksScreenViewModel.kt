@@ -8,7 +8,7 @@ import com.example.playlistmakerjetpackcompose.db.domain.LikeTrackInteractor
 import com.example.playlistmakerjetpackcompose.search.domain.models.Track
 import kotlinx.coroutines.launch
 
-class LikeMusicViewModel(private val likeTrackInteractor: LikeTrackInteractor) : ViewModel() {
+class LikedTracksScreenViewModel(private val likeTrackInteractor: LikeTrackInteractor) : ViewModel() {
     private val _tracks = MutableLiveData<List<Track>>()
     val tracksLiked: LiveData<List<Track>>
         get() = _tracks

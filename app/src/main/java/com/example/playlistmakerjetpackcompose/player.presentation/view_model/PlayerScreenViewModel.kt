@@ -19,13 +19,13 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class MusicPlayerViewModel(
-    private val track: Track,
+class PlayerScreenViewModel(
     private val likeTrackInteractor: LikeTrackInteractor,
     private val likeTrackDatabase: AppDatabase,
     private val playListInteractor: PlayListInteractor
 ) : ViewModel() {
 
+    private lateinit var track: Track
     private val dateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
 
     private var _isLiked = MutableLiveData<Boolean>()
@@ -41,6 +41,10 @@ class MusicPlayerViewModel(
         get() = _timerLiveData
 
     private val _playerState = MutableLiveData<PlayerState>()
+
+    fun getTrack(playTrack: Track){
+        track = playTrack
+    }
 
     val playerState: LiveData<PlayerState>
         get() = _playerState
@@ -64,7 +68,9 @@ class MusicPlayerViewModel(
     }
 
     fun setPlayerPosition() {
-        playerPosition = mediaPlayer.currentPosition.toLong()
+        if (mediaPlayerState == PlayerState.PLAYING) {
+            playerPosition = mediaPlayer.currentPosition.toLong()
+        }
     }
 
     private fun createUpdateTimerMusicTask() {
@@ -72,6 +78,7 @@ class MusicPlayerViewModel(
         timerJob = viewModelScope.launch {
             while (mediaPlayerState == PlayerState.PLAYING) {
                 delay(DELAY)
+                setPlayerPosition()
                 _timerLiveData.postValue(dateFormat.format(playerPosition).toString())
             }
         }
@@ -164,9 +171,7 @@ class MusicPlayerViewModel(
 
     fun insertInPlayList(id: Long, namePlayList:String) {
         viewModelScope.launch {
-            val trackAdded = playListInteractor.updatePlayList(track, id)
-            _trackAddedFlow.emit(ToastState(trackAdded, namePlayList))
-            update()
+            _trackAddedFlow.emit(ToastState(playListInteractor.updatePlayList(track, id), namePlayList))
         }
     }
 

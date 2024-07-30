@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.playlistmakerjetpackcompose.navigation.NavigatorPlayListMaker
-import com.example.playlistmakerjetpackcompose.playlist_create.presentation.compose_fun.CreatePlayListScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

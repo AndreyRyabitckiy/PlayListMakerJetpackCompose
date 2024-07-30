@@ -8,7 +8,7 @@ import com.example.playlistmakerjetpackcompose.db.domain.PlayListInteractor
 import com.example.playlistmakerjetpackcompose.playlist_create.domain.models.PlayList
 import kotlinx.coroutines.launch
 
-class PlayListViewModel(private val playlistInteractor: PlayListInteractor) : ViewModel() {
+class PlayListScreenViewModel(private val playlistInteractor: PlayListInteractor) : ViewModel() {
     private val _playList = MutableLiveData<List<PlayList>>()
     val playLists: LiveData<List<PlayList>>
         get() = _playList

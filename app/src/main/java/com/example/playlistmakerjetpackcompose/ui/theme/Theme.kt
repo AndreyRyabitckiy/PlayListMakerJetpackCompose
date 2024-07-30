@@ -10,41 +10,32 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.example.playlistmakerjetpackcompose.R
+import kotlin.math.absoluteValue
 
 private val DarkColorScheme = darkColorScheme(
     onBackground = Color(0xFFFFFFFF),
-    background = Color.Black,
-    secondary = Color.White,
-
-
-    primary = Color.Black,
-    tertiary = Pink80,
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onSurface = Color(0xFF1C1B1F),
+    background = Color(0xFF1A1B22),
+    primary = Color(0xFFFFFFFF),
+    secondary = Color(0xFF535459),
+    onPrimary = Color(0xFFFFFFFF),
+    onSecondary = Color(0xFFAEAFB4)
 )
 
 private val LightColorScheme = lightColorScheme(
-    onBackground = Color.Black,
-    background = Color(0xFFFFFF00),
-    secondary = Color(0xAEAFB400),
-    primary = Color.Black,
-    tertiary = Pink40,
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onSurface = Color(0xFF1C1B1F),
-
+    onBackground = Color(0xFF1A1B22),
+    background = Color(0xFFFFFFFF),
+    primary = Color(0xFFAEAFB4),
+    secondary = Color(0xFFc5c6c8),
+    onPrimary = Color(0xFF535459),
+    onSecondary = Color(0xFFAEAFB4)
 )
 
 @Composable
 fun PlayListMakerJetpackComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

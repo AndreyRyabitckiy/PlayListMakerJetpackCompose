@@ -1,4 +1,4 @@
-package com.example.playlistmaker.di
+package com.example.playlistmakerjetpackcompose.di
 
 
 import com.example.playlistmakerjetpackcompose.db.data.LikeTrackRepositoryImpl

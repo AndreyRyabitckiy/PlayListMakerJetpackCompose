@@ -1,17 +1,19 @@
-package com.example.playlistmakerjetpackcompose.media.presentation.compose_fun
+package com.example.playlistmakerjetpackcompose.player.presentation.compose_fun
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -25,47 +27,48 @@ import com.example.playlistmakerjetpackcompose.ui.theme.YsRegularFamily
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun PlayListItem(
+fun PlayListBottomItem(
     playList: PlayList,
-    onClickItem: (Long) -> Unit
+    onClick: (PlayList) -> Unit
 ) {
-    Column(
+    Row(
         modifier = Modifier
-            .clickable { onClickItem(playList.id) }
-            .background(MaterialTheme.colorScheme.background)
-            .padding(horizontal = 4.dp, vertical = 2.dp)
-            .fillMaxSize()
+            .padding(top = 8.dp, bottom = 8.dp, start = 12.dp)
+            .fillMaxWidth()
+            .clickable { onClick(playList) },
+        verticalAlignment = Alignment.CenterVertically
     ) {
+
         GlideImage(
             contentScale = ContentScale.Crop,
             loading = placeholder(R.drawable.place_holder),
             failure = placeholder(R.drawable.place_holder),
             model = playList.roadToFileImage,
             contentDescription = null,
-            modifier = Modifier
-                .clip(RoundedCornerShape(8.dp))
-                .aspectRatio(1f)
-        )
-        Text(
-            overflow = TextOverflow.Ellipsis,
-            softWrap = true,
-            maxLines = 1,
-            text = playList.namePlayList,
-            fontFamily = YsRegularFamily,
-            fontSize = 12.sp,
-            color = MaterialTheme.colorScheme.onBackground
+            modifier = Modifier.size(48.dp)
         )
 
-        Text(
-            overflow = TextOverflow.Ellipsis,
-            softWrap = true,
-            maxLines = 1,
-            text = convert(playList.count),
-            fontFamily = YsRegularFamily,
-            fontSize = 12.sp,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-
+        Spacer(modifier = Modifier.width(8.dp))
+        Column {
+            Text(
+                overflow = TextOverflow.Ellipsis,
+                softWrap = true,
+                maxLines = 1,
+                text = playList.namePlayList,
+                fontSize = 16.sp,
+                fontFamily = YsRegularFamily,
+                color = MaterialTheme.colorScheme.onBackground
+            )
+            Text(
+                overflow = TextOverflow.Ellipsis,
+                softWrap = true,
+                maxLines = 1,
+                text = convert(playList.count),
+                fontSize = 11.sp,
+                fontFamily = YsRegularFamily,
+                color = Color.Gray
+            )
+        }
     }
 }
 
